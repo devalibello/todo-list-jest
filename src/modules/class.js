@@ -43,7 +43,7 @@ export default class Books {
         this.toDoTasks = this.toDoTasks.filter((element) => element.completed !== true);
         this.renewIndex();
         this.saveToDoList();
-        this.updateToDoList();
+        // this.updateToDoList();
       }
 
       updateItem = (index, description) => {
