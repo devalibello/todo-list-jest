@@ -10,6 +10,7 @@ books.updateToDoList();
 itemInput.addEventListener('focusout', () => {
   const newTask = new Tasks(itemInput.value, books.toDoTasks.length + 1);
   books.addEntry(newTask);
+  books.updateToDoList();
   itemInput.value = '';
 });
 
@@ -18,6 +19,7 @@ itemInput.addEventListener('keypress', (e) => {
     e.preventDefault();
     const newTask = new Tasks(itemInput.value, books.toDoTasks.length + 1);
     books.addEntry(newTask);
+    books.updateToDoList();
     itemInput.value = '';
   }
 });
@@ -30,6 +32,7 @@ window.ticked = (index) => {
 
 window.removeItem = (index) => {
   books.remove(index);
+  books.updateToDoList();
 };
 
 window.clearAll = () => {

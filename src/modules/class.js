@@ -1,4 +1,3 @@
-
 export default class Books {
   constructor() {
     this.toDoTasks = localStorage.books ? JSON.parse(localStorage.books) : [];
@@ -20,7 +19,7 @@ export default class Books {
       addEntry = (book) => {
         this.toDoTasks.push(book);
         this.saveToDoList();
-        this.updateToDoList();
+        return this.toDoTasks;
       };
 
       saveToDoList = () => {
@@ -31,7 +30,6 @@ export default class Books {
         this.toDoTasks = this.toDoTasks.filter((element) => element.index !== ids);
         this.renewIndex();
         this.saveToDoList();
-        this.updateToDoList();
       }
 
       renewIndex = () => {

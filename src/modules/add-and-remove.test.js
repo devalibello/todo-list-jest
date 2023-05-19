@@ -2,64 +2,34 @@ import Books from './class.js';
 import Tasks from './object.js';
 
 class LocalStorageMock {
-    constructor() {
-      this.store = {};
-    }
-  
-    clear() {
-      this.store = {};
-    }
-  
-    getItem(key) {
-      return this.store[key] || null;
-    }
-  
-    setItem(key, value) {
-      this.store[key] = String(value);
-    }
-  
-    removeItem(key) {
-      delete this.store[key];
-    }
+  constructor() {
+    this.store = {};
   }
-  
-  global.localStorage = new LocalStorageMock;
 
-  //TRY ONE
+  clear() {
+    this.store = {};
+  }
 
-//   const setLocalStorage = (key, value) => {
-//     localStorage.setItem(key, JSON.stringify(value));
-//   };
+  getItem(key) {
+    return this.store[key] || null;
+  }
 
-//   test("data is added into local storage", () => {
-//     const storageKey = "books";
-//     const storageValue = new Tasks('workout', 1);;
-//     setLocalStorage(storageKey, storageValue);
-//     expect(localStorage.getItem(storageKey)).toEqual(JSON.stringify(storageValue));
-//   });
+  setItem(key, value) {
+    this.store[key] = String(value);
+  }
 
+  removeItem(key) {
+    delete this.store[key];
+  }
+}
 
-//TRY TWO
+global.localStorage = new LocalStorageMock();
 
-  test("data is added into local storage", () => {
-    const newTask = new Tasks('workout', 1);
+describe('Tests for Adding Items', () => {
+  test('Add 1 item', () => {
+    const newTask1 = new Tasks('list item 1', 1);
     const books = new Books();
-    const value = books.addEntry(newTask);
-    expect(value).toEqual(newTask);
+    books.addEntry(newTask1);
+    expect(books.toDoTasks[0].description).toEqual('list item 1');
   });
-
-
-//TRY THREE
-
-
-// const setLocalStorage = (key, value) => {
-//     localStorage.setItem(key, JSON.stringify(value));
-//   };
-
-//   test("data is added into local storage", () => {
-//     const storageKey = "books";
-//     const storageValue = new Tasks('workout', 1);;
-//     setLocalStorage(storageKey, storageValue);
-//     const books = new Books();
-//     expect(localStorage.getItem(storageKey)).toEqual(books.addEntry(storageValue));
-//   });
+});
