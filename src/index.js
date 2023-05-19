@@ -37,6 +37,7 @@ window.removeItem = (index) => {
 
 window.clearAll = () => {
   books.clearTicked();
+  books.updateToDoList();
 };
 
 window.editItem = (index) => {
