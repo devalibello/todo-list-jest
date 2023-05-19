@@ -86,6 +86,8 @@ After you're finished please remove all the comments and instructions!
 - **[and and remove items from the to-do list]**
 - **[mark an item as completed for deletion]**
 - **[The javascript code is split into modules]**
+- **[Includes functions testing using jest]**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,7 +99,7 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://devalibello.github.io/to-do-list/dist)
+- [Live Demo Link](https://devalibello.github.io/todo-list-jest/dist)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,6 +130,13 @@ Install this project with:
 
 3.  npm install --save-dev eslint@7.x eslint-config-airbnb-base@14.x eslint-plugin-import@2.x babel-eslint@10.x
 
+4.  npm install --save-dev jest
+
+5.  npm install --save-dev @babel/plugin-transform-modules-commonjs
+
+
+
+
 ### Usage
 
 To run the project, execute the following command:
@@ -148,6 +157,9 @@ To check for CSS or SCSS errors:
 
 - To fix javascript linters error:
   npx eslint . --fix
+
+  - To run jest test:
+  npm test
 
 ### Deployment
 
