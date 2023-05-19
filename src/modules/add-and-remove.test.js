@@ -34,7 +34,7 @@ describe('Tests for Adding Items', () => {
   });
 });
 
-describe ('Tests for Removing Items', () => {
+describe('Tests for Removing Items', () => {
   test('Add 3 items then remove 1 item', () => {
     const newTask1 = new Tasks('list item 1', 1);
     const newTask2 = new Tasks('list item 2', 2);
@@ -46,5 +46,5 @@ describe ('Tests for Removing Items', () => {
     books.remove(2);
     expect(books.toDoTasks[0].description).toEqual('list item 1');
     expect(books.toDoTasks[1].description).toEqual('list item 3');
-  })
+  });
 });
