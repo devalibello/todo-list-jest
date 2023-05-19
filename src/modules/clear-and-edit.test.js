@@ -45,3 +45,34 @@ describe('Test Updating Item', () => {
     expect(books.toDoTasks[0].index).toBe(1);
   });
 });
+
+describe('Test Clear All Completed', () => {
+  beforeEach(() => {
+    global.localStorage.clear();
+  });
+  test('Test clearing a completed task', () => {
+    const newItem1 = new Tasks('Item 1', 1);
+    const newItem2 = new Tasks('Item 2', 2);
+    const books = new Books();
+    books.addEntry(newItem1);
+    books.addEntry(newItem2);
+    books.toDoTasks[0].completed = true;
+    books.clearTicked();
+    expect(books.toDoTasks.length).toBe(1);
+  });
+});
+describe("Test updating an item's 'completed' status'", () => {
+  beforeEach(() => {
+    global.localStorage.clear();
+  });
+  test('Test marking an item as completed', () => {
+    const newItem1 = new Tasks('Item 1', 1);
+    const newItem2 = new Tasks('Item 2', 2);
+    const books = new Books();
+    books.addEntry(newItem1);
+    books.addEntry(newItem2);
+    expect(books.toDoTasks[0].completed).toBe(false);
+    books.toDoTasks[0].completed = true;
+    expect(books.toDoTasks[0].completed).toBe(true);
+  });
+});
